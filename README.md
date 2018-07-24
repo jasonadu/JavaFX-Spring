@@ -23,3 +23,13 @@ The command line steps to get this up and running are:
     mvn compile exec:java
 
 If it doesn't work, make sure that maven is running the right version of java by calling "mvn -version".  If you are still having trouble, check out the blogs mentioned above, and post if your issue is not resolved.
+=============
+
+### 在下面设置数据库H2，自动导入sql数据
+/javafx-spring-server
+steveonjava.server.ServicesConfiguration.sessionFactory()
+```
+        p.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "create");
+        p.put(org.hibernate.cfg.Environment.HBM2DDL_IMPORT_FILES, "import_h2.sql");
+        p.put(org.hibernate.cfg.Environment.DIALECT, H2Dialect.class.getName());
+```
